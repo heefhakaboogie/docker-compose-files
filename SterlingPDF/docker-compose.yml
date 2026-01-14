@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:latest
+    container_name: stirling-pdf
+    #ports:
+    #  - '8080:8080'
+    volumes:
+      - ./stirling-data:/configs
+    labels:
+      - proxy.aliases=sterlingpdf
+      - proxy.sterlingpdf.port=8080
+    restart: unless-stopped
+
+    #recommit
